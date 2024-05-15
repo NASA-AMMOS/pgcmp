@@ -174,7 +174,29 @@ where
    c.relnamespace = n.oid"
 
     TYPES="
-select 'data type', quote_ident(n.nspname), quote_ident(n.nspname) || '.' || quote_ident(t.typname), 'length:'||t.typlen::text || ',byval:'||t.typbyval::text||',phystype:'||t.typtype||',category:'||t.typcategory||',ispreferred:'||t.typispreferred::text||',delimiter:'||t.typdelim||'input:'||t.typinput::text||'output:'||t.typoutput::text||'receive:'||t.typreceive::text||'send:'||t.typsend::text||'modin:'||t.typmodin::text||'modout:'||t.typmodout::text||'analyze:'||t.typanalyze::text||'align:'||t.typalign::text||'storage:'||t.typstorage::text||'notnull:'||t.typnotnull::text||'typmod:'||t.typtypmod::text||'ndims:'||t.typndims::text||'collation:'||t.typcollation::text
+select
+  'data type',
+  quote_ident(n.nspname),
+  quote_ident(n.nspname) || '.' || quote_ident(t.typname),
+  'length:' || t.typlen::text ||
+  ',byval:' || t.typbyval::text ||
+  ',phystype:' || t.typtype::text ||
+  ',category:' || t.typcategory::text ||
+  ',ispreferred:' || t.typispreferred::text ||
+  ',delimiter:' || t.typdelim::text ||
+  'input:' || t.typinput::text ||
+  'output:' || t.typoutput::text ||
+  'receive:' || t.typreceive::text ||
+  'send:' || t.typsend::text ||
+  'modin:' || t.typmodin::text ||
+  'modout:' || t.typmodout::text ||
+  'analyze:' || t.typanalyze::text ||
+  'align:' || t.typalign::text ||
+  'storage:' || t.typstorage::text ||
+  'notnull:' || t.typnotnull::text ||
+  'typmod:' || t.typtypmod::text ||
+  'ndims:' || t.typndims::text ||
+  'collation:' || t.typcollation::text
 from pg_catalog.pg_type t, pg_namespace n
 where t.typnamespace = n.oid"
     
